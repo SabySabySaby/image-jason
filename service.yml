@@ -1,0 +1,11 @@
+apiVersion : v1
+kind : Service
+metadata :
+  name : package-app-service
+spec :
+  selector:
+    app : package-app
+  type : LoadBalancer
+  ports :
+    - port: 80
+    targetPort : 3000

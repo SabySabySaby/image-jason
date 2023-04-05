@@ -1,0 +1,25 @@
+apiVersion: apps/v1 
+
+kind: Deployment  
+metadata:
+  name: package-app-deployment
+  
+spec:
+  replicas : 5
+  selector:
+    matchLabels:
+      app: package-app
+  template:
+    metadata:
+      labels:
+        app: package-app
+    spec:
+      containers:
+      - name: package-app
+        image: sabysaby/image-json:latest 
+        ressources:
+          limits:
+            memory: "128Mi" 
+            cpu: "500m" 
+        ports:
+        - containerPort: 80
